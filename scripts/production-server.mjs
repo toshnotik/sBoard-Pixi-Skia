@@ -5,6 +5,7 @@ import { extname, join, normalize, resolve } from 'node:path';
 import { renderPdfResponse } from './pdf-export-server.mjs';
 
 const port = Number.parseInt(process.env.PORT ?? '3000', 10);
+const host = process.env.HOST ?? '0.0.0.0';
 const root = resolve('dist');
 
 const mimeTypes = {
@@ -38,8 +39,8 @@ const server = createServer(async (request, response) => {
   await serveStatic(request, response);
 });
 
-server.listen(port, '0.0.0.0', () => {
-  console.log(`sBoard Pixi + Skia is running on port ${port}`);
+server.listen(port, host, () => {
+  console.log(`sBoard Pixi + Skia is running on ${host}:${port}`);
 });
 
 async function serveStatic(request, response) {
