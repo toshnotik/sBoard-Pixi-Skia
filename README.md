@@ -32,6 +32,14 @@ npm run build
 
 Собранные файлы появятся в `dist/`.
 
+Запуск production-сервера:
+
+```bash
+npm start
+```
+
+По умолчанию сервер слушает порт `3000`. На хостинге можно передать порт через переменную `PORT`.
+
 Для отдельного запуска PDF backend:
 
 ```bash
@@ -58,6 +66,7 @@ npm run vite          # только Vite frontend
 npm run pdf-server    # только PDF export API
 npm run generate:pdf  # генерация PDF в output/
 npm run build         # TypeScript check + production build
+npm start             # production server
 ```
 
 ## Возможности

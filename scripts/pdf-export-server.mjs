@@ -18,19 +18,7 @@ export function startPdfExportServer(port = DEFAULT_PORT) {
       return;
     }
 
-    try {
-      const payload = JSON.parse(await readBody(request));
-      const pdf = await renderPdf(payload);
-      response.writeHead(200, {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="sboard-scene.pdf"',
-        'Content-Length': pdf.byteLength,
-      });
-      response.end(pdf);
-    } catch (error) {
-      response.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-      response.end(error instanceof Error ? error.message : 'PDF export failed');
-    }
+    await renderPdfResponse(request, response);
   });
 
   server.listen(port, '127.0.0.1', () => {
@@ -38,6 +26,22 @@ export function startPdfExportServer(port = DEFAULT_PORT) {
   });
 
   return server;
+}
+
+export async function renderPdfResponse(request, response) {
+  try {
+    const payload = JSON.parse(await readBody(request));
+    const pdf = await renderPdf(payload);
+    response.writeHead(200, {
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; filename="sboard-scene.pdf"',
+      'Content-Length': pdf.byteLength,
+    });
+    response.end(pdf);
+  } catch (error) {
+    response.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+    response.end(error instanceof Error ? error.message : 'PDF export failed');
+  }
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
