@@ -1,0 +1,74 @@
+{
+  "width": 760,
+  "height": 460,
+  "root": {
+    "type": "container",
+    "x": 40,
+    "y": 35,
+    "children": [
+      {
+        "type": "container",
+        "label": "subContainer",
+        "x": 75,
+        "y": 50,
+        "children": [
+          {
+            "type": "line",
+            "label": "g3 white line",
+            "x1": 0,
+            "y1": 0,
+            "x2": 150,
+            "y2": 100,
+            "stroke": "#ffffff",
+            "strokeWidth": 10,
+            "angle": -20
+          },
+          {
+            "type": "line",
+            "label": "g4 yellow line",
+            "x1": 0,
+            "y1": 70,
+            "x2": 150,
+            "y2": -30,
+            "stroke": "#ffff00",
+            "strokeWidth": 10,
+            "angle": 20
+          }
+        ]
+      },
+      {
+        "type": "ellipse",
+        "label": "g1 ellipse",
+        "x": 200,
+        "y": 100,
+        "rx": 200,
+        "ry": 100,
+        "fill": "#ff0000",
+        "angle": 30
+      },
+      {
+        "type": "rect",
+        "label": "g2 rectangle",
+        "x": 120,
+        "y": 60,
+        "rectX": -50,
+        "rectY": -75,
+        "width": 100,
+        "height": 150,
+        "fill": "#0000ff",
+        "angle": 15,
+        "scaleX": 1.5,
+        "scaleY": 1.7
+      },
+      {
+        "type": "sprite",
+        "label": "PNG sprite",
+        "x": 355,
+        "y": 225,
+        "width": 96,
+        "height": 96,
+        "angle": -12
+      }
+    ]
+  }
+}

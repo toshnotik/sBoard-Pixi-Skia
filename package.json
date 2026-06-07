@@ -1,0 +1,24 @@
+{
+  "name": "sboard-skia-pixi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-with-pdf-server.mjs",
+    "vite": "vite --host 127.0.0.1",
+    "pdf-server": "node scripts/pdf-export-server.mjs",
+    "build": "tsc && vite build",
+    "generate:pdf": "node scripts/generate-vector-pdf.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "canvaskit-wasm": "^0.40.0",
+    "pixi.js-legacy": "7.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "skia-canvas": "^3.0.8",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2"
+  }
+}
